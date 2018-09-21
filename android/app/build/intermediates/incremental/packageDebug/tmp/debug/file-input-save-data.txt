@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Mon Sep 17 10:49:48 NPT 2018
+#Fri Sep 21 12:26:16 NPT 2018
 17.baseType=DIRECTORY
 4.path=lib/x86_64/libimagepipeline.so
 25.base=/home/user/Documents/Projects/react-app/android/app/build/intermediates/transforms/mergeJniLibs/debug/0
@@ -67,7 +67,7 @@ count=27
 5.set=NATIVE_RESOURCE
 9.base=/home/user/Documents/Projects/react-app/android/app/build/intermediates/transforms/mergeJniLibs/debug/0
 16.path=lib/armeabi-v7a/libreactnativejni.so
-18.base=/home/user/Documents/Projects/react-app/android/app/build/intermediates/transforms/dexMerger/debug/342
+18.base=/home/user/Documents/Projects/react-app/android/app/build/intermediates/transforms/dexMerger/debug/475
 5.baseType=DIRECTORY
 11.base=/home/user/Documents/Projects/react-app/android/app/build/intermediates/transforms/mergeJniLibs/debug/0
 8.path=lib/arm64-v8a/libimagepipeline.so

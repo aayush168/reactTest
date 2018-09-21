@@ -1,20 +1,13 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Text, Button } from 'react-native';
+import { connect } from 'react-redux';
+import { fetchProducts } from '../actions/products'
 
 class OrderSummary extends Component {
-  constructor() {
-    super()
-    this.state = {
-      total: 0,
-      quantity: 0
-    }
+  componentWillMount() {
+    this.props.apiFetchProducts();
   }
-  addToCart = () => {
-    this.setState({
-      total: this.state.total + 100,
-      quantity: this.state.quantity + 1
-    })
-  }
+
   render() {
     return (
       <View style={styles.mainContainer}>
@@ -27,6 +20,13 @@ class OrderSummary extends Component {
         </View>
         <View>
           <Text style={styles.content}>Total</Text>
+          {this.props.products.map(x => {
+            return (
+              <View key={x.id}>
+                <Text>{x.employee_name}</Text>
+              </View>
+            )
+          })}
         </View>
       </View>
     );
@@ -54,4 +54,20 @@ const styles = StyleSheet.create({
   }
 })
 
-export default OrderSummary
+function mapStateToProps(state) {
+  console.log(state.products);
+  return {
+    products: state.products
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    apiFetchProducts() {
+      dispatch(fetchProducts())
+    }
+  }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(OrderSummary);

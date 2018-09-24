@@ -1,16 +1,28 @@
 import React, { Component } from 'react';
-import { Container } from 'native-base';
-import { ScrollView } from 'react-native'
+import { View, Text, ScrollView } from 'react-native';
+
 import Toolbar from './Toolbar';
-import ProductCard from './ProductCard'
+import ProductCard from './ProductCard';
+import FeaturedProducts from './FeaturedProducts'
 
 class Main extends Component {
   render() {
     return (
-      <Container>
+      <View style={{backgroundColor: '#fff'}}>
         <Toolbar/>
-        <ProductCard/>
-      </Container>
+        <ScrollView>
+          <View style={{padding: 10}}>
+            <FeaturedProducts/>
+          </View>
+          <View style={{ padding: 10 }}>
+            <FeaturedProducts />
+          </View>
+          <View style={{ padding: 10 }}>
+            <FeaturedProducts />
+          </View>
+        </ScrollView>
+      </View>
+      
     );
   }
 }

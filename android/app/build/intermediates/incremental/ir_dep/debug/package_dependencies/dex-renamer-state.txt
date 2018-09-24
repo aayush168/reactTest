@@ -1,4 +1,4 @@
-#Fri Sep 21 12:20:14 NPT 2018
-base.0=/home/user/Documents/Projects/react-app/android/app/build/intermediates/transforms/dexMerger/debug/467
+#Mon Sep 24 14:15:35 NPT 2018
+base.0=/home/user/Documents/Projects/react-app/android/app/build/intermediates/transforms/dexMerger/debug/771
 path.0=classes.dex
 renamed.0=classes.dex

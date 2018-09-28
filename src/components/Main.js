@@ -14,15 +14,8 @@ class Main extends Component {
           <View style={{padding: 10}}>
             <FeaturedProducts/>
           </View>
-          <View style={{ padding: 10 }}>
-            <FeaturedProducts />
-          </View>
-          <View style={{ padding: 10 }}>
-            <FeaturedProducts />
-          </View>
         </ScrollView>
       </View>
-      
     );
   }
 }

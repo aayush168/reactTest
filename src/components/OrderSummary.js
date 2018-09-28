@@ -7,7 +7,6 @@ class OrderSummary extends Component {
   componentWillMount() {
     this.props.apiFetchProducts();
   }
-
   render() {
     return (
       <View style={styles.mainContainer}>
@@ -48,14 +47,10 @@ const styles = StyleSheet.create({
   button: {
     width: 150,
     marginVertical: 10
-  },
-  content: {
-
   }
 })
 
 function mapStateToProps(state) {
-  console.log(state.products);
   return {
     products: state.products
   };

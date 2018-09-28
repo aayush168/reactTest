@@ -9,13 +9,6 @@ class Toolbar extends Component {
         <Content style={{flexDirection: 'row'}}>
           <View>
             <Text>asdasdasd</Text>
-            </View>
-
-          <View>
-            <Text>asdasdasd</Text>
-          </View>
-          <View>
-            <Text>asdasdasd</Text>
           </View>
         </Content>
       </Container>

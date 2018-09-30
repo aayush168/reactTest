@@ -8,7 +8,7 @@ import FeaturedProducts from './FeaturedProducts'
 class Main extends Component {
   render() {
     return (
-      <View style={{backgroundColor: '#fff'}}>
+      <View style={{backgroundColor: '#fff', flex: 1}}>
         <Toolbar/>
         <ScrollView>
           <View style={{padding: 10}}>

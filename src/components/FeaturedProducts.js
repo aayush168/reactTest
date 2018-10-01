@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView, Image, Button, TouchableOpacity, StyleSheet, Modal, TouchableHighlight } from 'react-native';
+import { View, Text, ScrollView, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import ProductCard from './ProductCard';
 import ProductCardModal from './ProductCardModal';
@@ -19,17 +19,9 @@ class FeaturedProducts extends Component {
 }
 const styles = StyleSheet.create({
   titleLabel: {
-    fontSize: 24,
-    marginVertical: 10,
-    fontWeight: '700'
+    fontSize: 18,
+    marginVertical: 10
   }
 })
 
-function mapStateToProps(state) {
-  console.log(state.modalVisibility)
-  return {
-    modalStatus: state.modalVisibility
-  };
-}
-
-export default connect(mapStateToProps)(FeaturedProducts);
+export default FeaturedProducts;

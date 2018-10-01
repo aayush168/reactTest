@@ -3,7 +3,7 @@ import { View, Text, Image, Button, TouchableOpacity, StyleSheet, Modal } from '
 import { connect } from 'react-redux';
 import { toggleModal } from '../actions/products';
 
-class ProductCardModal extends Component {
+class BillingModal extends Component {
   render() {
     return (
       <Modal
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
 
 function mapStateToProps(state) {
   return {
-    modalStatus: state.modalVisibility,
+    modalStatus: state.billingModalVisibilty,
     modalData: state.productModalData
   };
 }

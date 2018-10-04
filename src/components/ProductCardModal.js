@@ -23,11 +23,14 @@ class ProductCardModal extends Component {
           visible={this.props.modalStatus}
           onRequestClose={() => this.props.hideModal()}>
         <View style={{ justifyContent: 'center', alignItems: 'center' , flex: 1 }}>
-          <View style={{alignItems: 'center'}}>
-            <Image source={{ uri: this.props.modalData.imgSrc }} style={{ width: 150, height: 150 }}></Image>              
-            <Text>{this.props.modalData.name}</Text>
-            <Text>{this.props.modalData.price}</Text>
-            <Text>{this.props.modalData.details}</Text>
+          <View style={{ alignItems: 'center', paddingHorizontal: 15}}>
+            <Image source={{ uri: this.props.modalData.imgSrc }} style={{ width: 300, maxHeight: 200, flex: 1, marginBottom: 20 }}></Image>              
+            <Text style={{fontSize: 20, marginBottom: 20}}>{this.props.modalData.name}</Text>
+            <Text>Details: {this.props.modalData.details}</Text>
+            <View style={{flexDirection: 'row', marginVertical: 20, alignItems: 'center'}}>
+              <Text style={{ flex: 1, textAlign: 'left' }}>Price:</Text> 
+              <Text style={{ flex: 1, textAlign: 'right', fontSize: 22 }}>${this.props.modalData.price}</Text>
+            </View>
             <Slider
               style={{width: 250, marginBottom: 10}}
               maximumValue={20}
@@ -39,7 +42,7 @@ class ProductCardModal extends Component {
             <Button
               onPress={() => this.props.add(this.props.modalData)}
               title="Add To Cart"
-              color="#841584"
+              color="#ff7d72"
               accessibilityLabel="Add To Cart"
             />
           </View>

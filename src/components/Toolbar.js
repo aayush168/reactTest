@@ -16,8 +16,8 @@ class Toolbar extends Component {
             size={25}
           />
         </TouchableOpacity>
-        <View style={{ flex: 2, textAlign: 'center' }}>
-          <Text style={{ fontSize: 20}}>
+        <View style={{ flex: 2}}>
+          <Text style={{ fontSize: 20, textAlign: 'center'}}>
             Home
           </Text>
         </View>
@@ -26,6 +26,7 @@ class Toolbar extends Component {
             name="cart"
             color="#ff7d72"
             size={25}
+            style= {{textAlign: 'right'}}
           />
         </TouchableOpacity>
         </View>

@@ -10,12 +10,12 @@ class ProductCard extends Component {
         {this.props.productLists.map(product => {
           return (
             <TouchableOpacity onPress={() => this.props.setData(product)} style={styles.productCard} key={product.name}>
-              <View style={{ height: 175, width: 150, flex: 2 }}>
+              <View style={{ height: 150, width: 150, flex: 2 }}>
                 <Image source={{ uri: product.imgSrc }} style={{ flex: 1, width: null, height: null, resizeMode: 'cover' }}></Image>
               </View>
-              <View style={{ height: 175, width: 150, flex: 1 }}>
-                <Text style={{ paddingLeft: 10, paddingTop: 10 }}>{product.name}</Text>
-                <Text style={{ paddingLeft: 10, paddingTop: 10 }}>{product.price}</Text>                
+              <View style={{ height: 150, width: 150, flex: 1 }}>
+                <Text style={styles.productTitle}>{product.name}</Text>
+                <Text style={styles.priceLabel}>{product.price}</Text>                
               </View>
             </TouchableOpacity>
           )
@@ -27,7 +27,16 @@ class ProductCard extends Component {
 
 const styles = StyleSheet.create({
   productCard: {
-    height: 175, borderWidth: 0.5, borderColor: '#ccc', width: 175, marginRight: 20
+    height: 150, borderWidth: 0.5, borderColor: '#ccc', width: 150, marginVertical: 5, marginRight: 10
+  },
+  productTitle: {
+    fontSize: 16,
+    textAlign: 'center',
+    paddingTop: 5
+  },
+  priceLabel: {
+    fontSize: 14,
+    textAlign: 'center'
   }
 })
 

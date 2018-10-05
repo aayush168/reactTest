@@ -8,23 +8,23 @@ class Toolbar extends Component {
   }
   render() {
     return (
-      <View style={{ height: 50, flexDirection: 'row', alignItems: 'center', paddingHorizontal: 10 }}>
+      <View style={{ height: 50, flexDirection: 'row', alignItems: 'center', paddingHorizontal: 15, backgroundColor: '#fff' }}>
         <TouchableOpacity style={{flex: 1}}>
           <Icon
             name="menu"
-            color="#ff7d72"
+            // color="#ff7d72"
             size={25}
           />
         </TouchableOpacity>
         <View style={{ flex: 2}}>
-          <Text style={{ fontSize: 20, textAlign: 'center'}}>
+          <Text style={{ fontSize: 20, textAlign: 'center', fontWeight: 'bold'}}>
             Home
           </Text>
         </View>
         <TouchableOpacity style={{ flex: 1 }} onPress={this.cartSummary}>
           <Icon
             name="cart"
-            color="#ff7d72"
+            // color="#ff7d72"
             size={25}
             style= {{textAlign: 'right'}}
           />

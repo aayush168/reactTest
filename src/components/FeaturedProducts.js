@@ -9,7 +9,7 @@ class FeaturedProducts extends Component {
     return (
       <View>
         <Text style={styles.titleLabel}>Featured Products</Text>
-        <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+        <ScrollView showsHorizontalScrollIndicator={false}>
           <ProductCard/>
         </ScrollView>
         <ProductCardModal/>

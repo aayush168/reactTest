@@ -6,16 +6,26 @@ import { toggleModal, setModalData } from '../actions/products';
 class ProductCard extends Component {
   render() {
     return (
-      <View>
+      <View style={{flex: 1, flexDirection: 'row'}}>
         {this.props.productLists.map(product => {
           return (
-            <TouchableOpacity onPress={() => this.props.setData(product)} style={styles.productCard} key={product.name}>
-              <View style={{ height: 150, width: 150, flex: 2 }}>
+            <TouchableOpacity onPress={() => this.props.setData(product)} key={product.name} style={styles.productCard}>
+              {/* <View style={{ height: 200, width: 150, flex: 2 }}>
                 <Image source={{ uri: product.imgSrc }} style={{ flex: 1, width: null, height: null, resizeMode: 'cover' }}></Image>
               </View>
               <View style={{ height: 150, width: 150, flex: 1 }}>
                 <Text style={styles.productTitle}>{product.name}</Text>
                 <Text style={styles.priceLabel}>{product.price}</Text>                
+              </View> */}
+              <View style={{ backgroundColor: '#fff', padding: 10, borderRadius: 5, flexDirection: 'row', flex: 1}}>
+                <View style={{ flex: 1, flexDirection: 'row' }}>
+                  {/* <Image source={{ uri: product.imgSrc }} style={{ flex: 1 }}></Image> */}
+                  <Text>dasdasd</Text>
+                </View>
+                <View style={{ flex: 2, flexDirection: 'row' }}>
+                  <Text style={styles.productTitle}>{product.name}</Text>
+                  <Text style={styles.priceLabel}>{product.price}</Text> 
+                </View>                
               </View>
             </TouchableOpacity>
           )
@@ -27,7 +37,9 @@ class ProductCard extends Component {
 
 const styles = StyleSheet.create({
   productCard: {
-    height: 150, borderWidth: 0.5, borderColor: '#ccc', width: 150, marginVertical: 5, marginRight: 10
+    marginBottom: 10,
+    flex: 1,
+    height: 100
   },
   productTitle: {
     fontSize: 16,

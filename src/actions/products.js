@@ -27,10 +27,15 @@ export function setModalData(payload) {
 }
 
 export function addToCart(payload) {
-  console.log(payload, 'action')
   return {
     type: 'ADD_TO_CART',
     payload
+  }
+}
+
+export function resetAll() {
+  return {
+    type: 'RESET_CART'
   }
 }
 

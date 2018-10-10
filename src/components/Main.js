@@ -9,11 +9,9 @@ class Main extends Component {
     return (
       <View style={{flex: 1}}>
         <Toolbar/>
-        {/* <ScrollView> */}
-          <View style={{paddingHorizontal: 15}}>
-            <FeaturedProducts/>
-          </View>
-        {/* </ScrollView> */}
+        <View style={{paddingHorizontal: 5}}>
+          <FeaturedProducts/>
+        </View>
       </View>
     );
   }

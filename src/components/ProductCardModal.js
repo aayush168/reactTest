@@ -4,11 +4,22 @@ import { connect } from 'react-redux';
 import { toggleModal, addToCart } from '../actions/products';
 
 class ProductCardModal extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
-      quantity: '1'
+      quantity: 1
     }
+  }
+  toggleQuantity = (status) =>  {
+    let quantity = this.state.quantity
+    if (status === 'add' && this.state.quantity >= 1) {
+      quantity++ 
+      this.setState({quantity: quantity})
+    } else if (status === 'sub' && this.state.quantity > 1) { 
+      quantity--
+      this.setState({ quantity: quantity })        
+    }
+    
   }
   render() {
     return (
@@ -19,28 +30,23 @@ class ProductCardModal extends Component {
           onRequestClose={() => this.props.hideModal()}>
         <View style={{ justifyContent: 'center', alignItems: 'center' , flex: 1 }}>
           <View style={{ alignItems: 'center', paddingHorizontal: 15}}>
-            <Image source={{ uri: this.props.modalData.imgSrc }} style={{ width: 300, maxHeight: 200, flex: 1, marginBottom: 20 }}></Image>              
+            <Image source={{ uri: this.props.modalData.imgSrc }} style={styles.productImage}></Image>              
             <Text style={{fontSize: 22, marginBottom: 20, fontWeight: 'bold'}}>{this.props.modalData.name}</Text>
             <Text>Details: {this.props.modalData.details}, Offices parties lasting outward nothing age few resolve. Impression to discretion understood to we interested he excellence. </Text>
             <View style={{flexDirection: 'row', justifyContent: 'center', marginTop: 20}}>
-              <TouchableOpacity style={{ height: 25, width: 25, borderWidth: 1, justifyContent: 'center', alignItems: 'center', borderColor: '#bbb' }}>
+              <TouchableOpacity style={styles.toggleBtn} onPress={() => this.toggleQuantity('sub')}>
                 <Text>-</Text>
               </TouchableOpacity>
               <View style={{ width: 100 }}>
-                <TextInput
-                  style={{ textAlign: 'center'}}
-                  onChangeText={(quantity) => this.setState({ quantity })}
-                  value={this.state.quantity}
-                  keyboardType= 'numeric'
-                />
+                <Text style={styles.center}>{this.state.quantity}</Text>
               </View>
-              <TouchableOpacity style={{ height: 25, width: 25, borderWidth: 1, justifyContent: 'center', alignItems: 'center', borderColor: '#bbb' }}>
+              <TouchableOpacity style={styles.toggleBtn} onPress={() => this.toggleQuantity('add')}>
                 <Text>+</Text>
               </TouchableOpacity>
             </View>
-            <View style={{flexDirection: 'row', marginTop: 10, marginBottom: 20,  alignItems: 'center'}}>
-              <Text style={{ flex: 1, textAlign: 'left', fontSize: 20, fontWeight: 'bold' }}>Price</Text> 
-              <Text style={{ flex: 1, textAlign: 'right', fontSize: 20, fontWeight: 'bold' }}>${this.props.modalData.price}</Text>
+            <View style={{flexDirection: 'row', marginTop: 10, marginBottom: 20}}>
+              <Text style={[styles.left, styles.priceLabel]}>Price</Text> 
+              <Text style={[styles.right, styles.priceLabel]}>${this.props.modalData.price}</Text>
             </View>
             <View style={{ flexDirection: 'row' }}>
               <View style={{ flex: 2 }}>
@@ -67,6 +73,24 @@ class ProductCardModal extends Component {
   }
 }
 const styles = StyleSheet.create({
+  toggleBtn: {
+    height: 25, width: 25, borderWidth: 1, justifyContent: 'center', alignItems: 'center', borderColor: '#bbb'
+  }, 
+  productImage: {
+    width: 300, maxHeight: 200, flex: 1, marginBottom: 20
+  },
+  priceLabel: {
+    flex: 1, fontSize: 20, fontWeight: 'bold' 
+  },
+  left: {
+    textAlign: 'left'
+  },
+  right: {
+    textAlign: 'right'
+  },
+  center: {
+    textAlign: 'center'
+  }
 })
 
 function mapStateToProps(state) {

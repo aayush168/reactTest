@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import Icon from "../components/Icon";
+import { connect } from 'react-redux';
+import { resetAll } from '../actions/products';
+
 
 class Toolbar extends Component {
-  cartSummary() {
-    alert('asd')
+  cartSummary = () => {
+    this.props.resetCart()
   }
   render() {
     return (
@@ -12,7 +15,6 @@ class Toolbar extends Component {
         <TouchableOpacity style={{flex: 1}}>
           <Icon
             name="menu"
-            // color="#ff7d72"
             size={25}
           />
         </TouchableOpacity>
@@ -21,17 +23,32 @@ class Toolbar extends Component {
             Home
           </Text>
         </View>
-        <TouchableOpacity style={{ flex: 1 }} onPress={this.cartSummary}>
+        <TouchableOpacity style={{ flex: 1, position: 'relative' }} onPress={() => this.cartSummary()}>
           <Icon
             name="cart"
             // color="#ff7d72"
             size={25}
             style= {{textAlign: 'right'}}
           />
+          <Text style={{ position: 'absolute', right: 20, zIndex: 99, backgroundColor: 'red', color: 'white', width: 25, height: 25, borderRadius: 12.5, textAlign: 'center'}}>{this.props.cartItems.length}</Text>
         </TouchableOpacity>
         </View>
     );
   }
 }
 
-export default Toolbar
+function mapStateToProps(state) {
+  return {
+    cartItems: state.billingModalData
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    resetCart() {
+      dispatch(resetAll())
+    },
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Toolbar);

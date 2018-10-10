@@ -1,18 +1,17 @@
 import { AppRegistry } from 'react-native';
 import React from 'react';
 import { Provider } from 'react-redux';
-import App from './App';
-import { createStore, applyMiddleware } from 'redux';
-import reducer from './src/reducers/products';
-import promiseMiddleware from 'redux-promise-middleware';
-import logger from 'redux-logger';
+import { PersistGate } from 'redux-persist/integration/react'
 
-const store = createStore(reducer, applyMiddleware(
-  promiseMiddleware(), logger) )
+import { persistor, store } from './src/config';
+import App from './App';
+import LoadingView from './src/components/Loader.js'
 
 const AppContainer = () => 
   <Provider store = {store}>
-    <App/>
+    <PersistGate loading={<LoadingView/>} persistor={persistor}>
+      <App/>
+    </PersistGate>
   </Provider>
 
 AppRegistry.registerComponent('reactapp', () => AppContainer);

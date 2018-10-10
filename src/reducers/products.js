@@ -2,7 +2,8 @@
 const initialState = {
   products: [
     { name: 'Chicken Burger', price: 175, details: 'Grilled chickhen with cheese topping', imgSrc: 'https://bk-ca-prd.s3.amazonaws.com/sites/burgerking.ca/files/Roadhouse-King-Silo-300x270_CR.jpg'},
-    { name: 'Ham Burger', price: 200, details: 'Deep Fried Ham with hot spices', imgSrc: 'https://bk-ca-prd.s3.amazonaws.com/sites/burgerking.ca/files/Roadhouse-King-Silo-300x270_CR.jpg' }
+    { name: 'Ham Burger', price: 200, details: 'Deep Fried Ham with hot spices', imgSrc: 'https://bk-ca-prd.s3.amazonaws.com/sites/burgerking.ca/files/Roadhouse-King-Silo-300x270_CR.jpg' },
+    { name: 'Ham Burger Grilled', price: 200, details: 'Deep Fried Ham with hot spices', imgSrc: 'https://bk-ca-prd.s3.amazonaws.com/sites/burgerking.ca/files/Roadhouse-King-Silo-300x270_CR.jpg' }    
   ],
   loading: false,
   productModalVisibility: false,
@@ -46,8 +47,14 @@ export default (state = initialState, action) => {
       }
     case 'ADD_TO_CART': {
       return {
-        ...state, 
+        ...state,
         billingModalData: state.billingModalData.concat(action.payload)
+      }
+    }
+    case 'RESET_CART': {
+      return {
+        ...state,
+        billingModalData: []
       }
     }
     default: 

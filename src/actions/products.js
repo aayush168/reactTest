@@ -1,9 +1,23 @@
 import axios from 'axios';
+import db from '../firebase/db'
 
-function fetchProductsAPI() {
-  return axios.get('http://dummy.restapiexample.com/api/v1/employees').then(res => {
-    return res.data.splice(0,10)
-  })
+// function fetchProductsAPI() {
+//   return axios.get('http://dummy.restapiexample.com/api/v1/employees').then(res => {
+//     return res.data.splice(0,10)
+//   })
+// }
+
+async function fetchProductsAPI() {
+  let productData = []
+  try {
+    var docRef = await db.collection("products").get()  
+    docRef.forEach(doc => {
+      productData.push(doc.data())
+    })
+    return productData
+  } catch(e) {
+    return e
+  }
 }
 
 export function fetchProducts() {

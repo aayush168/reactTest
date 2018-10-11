@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 import { toggleModal, setModalData } from '../actions/products';
 
 class ProductCard extends Component {
+  constructor(props) {
+    super(props)
+  }
   render() {
     return (
       <View style={{flex: 1}}>
@@ -12,7 +15,7 @@ class ProductCard extends Component {
             <TouchableOpacity onPress={() => this.props.setData(product)} key={product.name} style={styles.productCard}>
               <View style={{ backgroundColor: '#fff', padding: 10, borderRadius: 5, flexDirection: 'row', flex: 1}}>
                 <View style={{ flex: 1 }}>
-                  <Image source={{ uri: product.imgSrc }} style={{ flex: 1 }}></Image>
+                  <Image source={{ uri: product.imgPath }} style={{ flex: 1 }}></Image>
                 </View>
                 <View style={{ flex: 2, alignItems: 'center', justifyContent: 'center' }}>
                   <Text style={styles.productTitle}>{product.name}</Text>

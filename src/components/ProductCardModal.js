@@ -19,7 +19,6 @@ class ProductCardModal extends Component {
       quantity--
       this.setState({ quantity: quantity })        
     }
-    
   }
   render() {
     return (
@@ -30,7 +29,7 @@ class ProductCardModal extends Component {
           onRequestClose={() => this.props.hideModal()}>
         <View style={{ justifyContent: 'center', alignItems: 'center' , flex: 1 }}>
           <View style={{ alignItems: 'center', paddingHorizontal: 15}}>
-            <Image source={{ uri: this.props.modalData.imgSrc }} style={styles.productImage}></Image>              
+            <Image source={{ uri: this.props.modalData.imgPath }} style={styles.productImage}></Image>             
             <Text style={{fontSize: 22, marginBottom: 20, fontWeight: 'bold'}}>{this.props.modalData.name}</Text>
             <Text>Details: {this.props.modalData.details}, Offices parties lasting outward nothing age few resolve. Impression to discretion understood to we interested he excellence. </Text>
             <View style={{flexDirection: 'row', justifyContent: 'center', marginTop: 20}}>

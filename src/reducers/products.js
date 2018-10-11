@@ -1,9 +1,9 @@
 
 const initialState = {
   products: [
-    { name: 'Chicken Burger', price: 175, details: 'Grilled chickhen with cheese topping', imgSrc: 'https://bk-ca-prd.s3.amazonaws.com/sites/burgerking.ca/files/Roadhouse-King-Silo-300x270_CR.jpg'},
-    { name: 'Ham Burger', price: 200, details: 'Deep Fried Ham with hot spices', imgSrc: 'https://bk-ca-prd.s3.amazonaws.com/sites/burgerking.ca/files/Roadhouse-King-Silo-300x270_CR.jpg' },
-    { name: 'Ham Burger Grilled', price: 200, details: 'Deep Fried Ham with hot spices', imgSrc: 'https://bk-ca-prd.s3.amazonaws.com/sites/burgerking.ca/files/Roadhouse-King-Silo-300x270_CR.jpg' }    
+    // { name: 'Chicken Burger', price: 175, details: 'Grilled chickhen with cheese topping', imgSrc: 'https://bk-ca-prd.s3.amazonaws.com/sites/burgerking.ca/files/Roadhouse-King-Silo-300x270_CR.jpg'},
+    // { name: 'Ham Burger', price: 200, details: 'Deep Fried Ham with hot spices', imgSrc: 'https://bk-ca-prd.s3.amazonaws.com/sites/burgerking.ca/files/Roadhouse-King-Silo-300x270_CR.jpg' },
+    // { name: 'Ham Burger Grilled', price: 200, details: 'Deep Fried Ham with hot spices', imgSrc: 'https://bk-ca-prd.s3.amazonaws.com/sites/burgerking.ca/files/Roadhouse-King-Silo-300x270_CR.jpg' }    
   ],
   loading: false,
   productModalVisibility: false,
@@ -14,12 +14,19 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch(action.type) {
+    case 'FETCH_PRODUCTS':
+    console.log(action.payload)
+    return {
+      ...state,
+      products: action.payload
+    }
     case 'FETCH_PRODUCTS_PENDING':
       return {
         ...state,
         loading: true
       }
     case 'FETCH_PRODUCTS_FULFILLED':
+      console.log(action.payload)
       return {
         ...state,
         products: action.payload,

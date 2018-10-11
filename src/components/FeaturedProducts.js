@@ -5,8 +5,15 @@ import ProductCard from './ProductCard';
 import ProductCardModal from './ProductCardModal';
 
 class FeaturedProducts extends Component {
+  constructor(props) {
+    super(props) 
+    this.state = {
+      productData: []
+    }
+  }
   render() {
     return (
+
       <View>
         <Text style={styles.titleLabel}>Featured Products</Text>
         <ScrollView showsVerticalScrollIndicator={false}>
